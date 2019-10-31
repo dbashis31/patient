@@ -1,4 +1,4 @@
-package com.patient.common;
+package com.patient;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

@@ -12,3 +12,7 @@ CREATE TABLE patient.address (
 
 ALTER TABLE patient.address ADD addresstypeid uuid NULL;
 ALTER TABLE patient.address ADD CONSTRAINT address_fk FOREIGN KEY (patientmemberrecordid) REFERENCES patient.patientmemberrecord(id);
+ALTER TABLE patient.address  ADD createddt date NULL;
+ALTER TABLE patient.address  ADD createdby varchar(50) NULL;
+ALTER TABLE patient.address  ADD updatedby varchar(50) NULL;
+ALTER TABLE patient.address  ADD updateddt date NULL;

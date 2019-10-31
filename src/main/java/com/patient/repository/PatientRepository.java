@@ -10,10 +10,7 @@ import com.patient.entity.Patient;
  */
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, String> {
-	@Query("SELECT pat FROM Patient pat "
-			+ " Join fetch pat.memberRecords "
-			+ " left join fetch pat.memberRecords.address "
-			+ " where pat.enterpriseId = :enterpriseId ")
-	Patient findByPatientByEnterpriseId(@Param("enterpriseId") String enterpriseId);
+	// TODO : We can solve N+1 problem using join fetch
+	Patient findByEnterpriseId(String enterpriseId);
 	long deleteByEnterpriseId(String enterpriseId);
 }

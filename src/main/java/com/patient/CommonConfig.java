@@ -1,4 +1,4 @@
-package com.patient.common;
+package com.patient;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

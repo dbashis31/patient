@@ -1,4 +1,4 @@
-package com.patient.common;
+package com.patient;
 
 import java.util.Collections;
 

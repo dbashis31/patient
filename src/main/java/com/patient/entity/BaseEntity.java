@@ -21,9 +21,7 @@ import lombok.Data;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
-	@Id
-	@Column(name="id")
-	private String id; 
+	
 
 	@Column(name="createdby")
 	@CreatedBy
@@ -43,47 +41,6 @@ public class BaseEntity {
 	@LastModifiedDate
 	private Date updatedDt;
 	
-	@Column(length=1)
-	private String isdeleted;
-
-	public String getIsdeleted() {
-		return isdeleted;
-	}
-
-	public void setIsdeleted(String isdeleted) {
-		this.isdeleted = isdeleted;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getCreatedDt() {
-		return createdDt;
-	}
-
-	public void setCreatedDt(Date createdDt) {
-		this.createdDt = createdDt;
-	}
-
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Date getUpdatedDt() {
-		return updatedDt;
-	}
-
-	public void setUpdatedDt(Date updatedDt) {
-		this.updatedDt = updatedDt;
-	}
+	
 
 }

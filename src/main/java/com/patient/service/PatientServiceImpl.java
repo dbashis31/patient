@@ -41,7 +41,7 @@ public class PatientServiceImpl implements PatientService {
      */
 	public Optional<PatientDTO> get(String enterpriseId) {
 		try {
-			Patient patient = patientRepo.findByPatientByEnterpriseId(enterpriseId);
+			Patient patient = patientRepo.findByEnterpriseId(enterpriseId);
 			PatientDTO dtoPatient = modelMapper.map(patient, PatientDTO.class);
 			return Optional.ofNullable(dtoPatient);
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class PatientServiceImpl implements PatientService {
 	public boolean delete(String enterpriseId) {
 		boolean res = false;
 		try {
-			Patient patient = patientRepo.findByPatientByEnterpriseId(enterpriseId);
+			Patient patient = patientRepo.findByEnterpriseId(enterpriseId);
 			if(patient !=null && !CollectionUtils.isEmpty(patient.getMemberRecords())) {
 				// Loop through all members in order to get address associate with this
 				// O(N^2*N)

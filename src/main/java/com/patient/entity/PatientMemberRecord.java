@@ -4,10 +4,12 @@ package com.patient.entity;
  */
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -22,11 +24,16 @@ import lombok.EqualsAndHashCode;
 @Table(name = "patientmemberrecord", schema = ApplicationConstants.DB_SCHEMA)
 public class PatientMemberRecord extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
+	@Id
+	@org.hibernate.annotations.Type(type="pg-uuid")
+	@Column(name = "id")
+	private UUID id;
 	// AS Database table column name are different thats why using @column annotation
 	@Column(name="source")
 	private String source;
+	@org.hibernate.annotations.Type(type="pg-uuid")
 	@Column(name="patientid")
-	private String patientId;
+	private UUID patientId;
 	@Column(name="medicalrecordnumber")
 	private String medicalRecordNumber;
 	@Column(name="firstname")
@@ -38,7 +45,7 @@ public class PatientMemberRecord extends BaseEntity implements Serializable {
 	@JoinColumn(name="patientmemberrecordid")
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Address> address;
-	@ManyToOne
-    private Patient patient;
+	
+	
 	
 }

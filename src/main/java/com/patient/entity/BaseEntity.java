@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,23 +20,26 @@ import lombok.Data;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class AuditEntity {
+public class BaseEntity {
+	@Id
+	@Column(name="id")
+	private String id; 
 
-	@Column(name="created_by")
+	@Column(name="createdby")
 	@CreatedBy
 	private String createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_dt")
+	@Column(name="createddt")
 	@CreatedDate
 	private Date createdDt;
 
-	@Column(name="updated_by")
+	@Column(name="updatedby")
 	@LastModifiedBy
 	private String updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_dt")
+	@Column(name="updateddt")
 	@LastModifiedDate
 	private Date updatedDt;
 	

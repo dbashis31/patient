@@ -8,10 +8,14 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -29,7 +33,11 @@ public class Patient extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	 @Id
-	 @org.hibernate.annotations.Type(type="pg-uuid")
+	 @GeneratedValue(generator = "UUID")
+	 @GenericGenerator(
+			name = "UUID",
+			strategy = "org.hibernate.id.UUIDGenerator"
+		)
 	 @Column(name = "id")
 	 private UUID id;
 	 

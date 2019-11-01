@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "d73b3d60-d8c9-43cf-92da-dc55af7b1d96",
+		"name": "patient-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "patient-api-get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "uniqueid",
+						"value": "6b61ac1e-221a-495c-957b-ad85f65be25a",
+						"type": "text"
+					},
+					{
+						"key": "role",
+						"value": "role=CP_PUBLIC",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/patient/1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"1234"
+					],
+					"query": [
+						{
+							"key": "uniqueid",
+							"value": "s2224424",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "CP_PUBLIC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient-api-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "uniqueid",
+						"value": "6b61ac1e-221a-495c-957b-ad85f65be25a",
+						"type": "text"
+					},
+					{
+						"key": "role",
+						"value": "role=CP_PUBLIC",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/patient/1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"1234"
+					],
+					"query": [
+						{
+							"key": "uniqueid",
+							"value": "s2224424",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "CP_PUBLIC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient-api-post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "uniqueid",
+						"value": "6b61ac1e-221a-495c-957b-ad85f65be25a",
+						"type": "text"
+					},
+					{
+						"key": "role",
+						"value": "role=CP_PUBLIC",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"createdBy\": null,\r\n    \"createdDt\": null,\r\n    \"updatedBy\": null,\r\n    \"updatedDt\": null,\r\n    \"enterpriseId\": \"1234\",\r\n    \"memberRecords\": [\r\n        {\r\n            \"id\": null,\r\n            \"createdBy\": null,\r\n            \"createdDt\": null,\r\n            \"updatedBy\": null,\r\n            \"updatedDt\": null,\r\n            \"source\": \"M\",\r\n            \"patientId\": null,\r\n            \"medicalRecordNumber\": \"123455\",\r\n            \"firstName\": \"Deb\",\r\n            \"lastName\": \"P\",\r\n            \"socialSecurityNumber\": \"1205678904\",\r\n            \"address\": [\r\n                {\r\n                    \"id\": null,\r\n                    \"createdBy\": null,\r\n                    \"createdDt\": null,\r\n                    \"updatedBy\": null,\r\n                    \"updatedDt\": null,\r\n                    \"addressLine1\": \"3127 wheaton way \",\r\n                    \"addressLine2\": \"APTD\",\r\n                    \"city\": \"Ellicott\",\r\n                    \"state\": \"MD\",\r\n                    \"zipCode\": \"21043\",\r\n                    \"addresstype\": null\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/patient/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						""
+					],
+					"query": [
+						{
+							"key": "uniqueid",
+							"value": "s2224424",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "CP_PUBLIC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient-api-put",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "uniqueid",
+						"value": "6b61ac1e-221a-495c-957b-ad85f65be25a",
+						"type": "text"
+					},
+					{
+						"key": "role",
+						"value": "role=CP_PUBLIC",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"createdBy\": null,\r\n    \"createdDt\": null,\r\n    \"updatedBy\": null,\r\n    \"updatedDt\": null,\r\n    \"enterpriseId\": \"1234\",\r\n    \"memberRecords\": [\r\n        {\r\n            \"id\": null,\r\n            \"createdBy\": null,\r\n            \"createdDt\": null,\r\n            \"updatedBy\": null,\r\n            \"updatedDt\": null,\r\n            \"source\": \"M\",\r\n            \"patientId\": null,\r\n            \"medicalRecordNumber\": \"123455\",\r\n            \"firstName\": \"Deb\",\r\n            \"lastName\": \"P\",\r\n            \"socialSecurityNumber\": \"1205678904\",\r\n            \"address\": [\r\n                {\r\n                    \"id\": null,\r\n                    \"createdBy\": null,\r\n                    \"createdDt\": null,\r\n                    \"updatedBy\": null,\r\n                    \"updatedDt\": null,\r\n                    \"addressLine1\": \"3127 wheaton way \",\r\n                    \"addressLine2\": \"APTD\",\r\n                    \"city\": \"Ellicott\",\r\n                    \"state\": \"MD\",\r\n                    \"zipCode\": \"21043\",\r\n                    \"addresstype\": null\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/patient/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						""
+					],
+					"query": [
+						{
+							"key": "uniqueid",
+							"value": "s2224424",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "CP_PUBLIC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

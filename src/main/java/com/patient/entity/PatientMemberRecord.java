@@ -9,11 +9,15 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import com.patient.constrants.ApplicationConstants;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,8 +28,12 @@ import lombok.EqualsAndHashCode;
 @Table(name = "patientmemberrecord", schema = ApplicationConstants.DB_SCHEMA)
 public class PatientMemberRecord extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@Id
-	@org.hibernate.annotations.Type(type="pg-uuid")
+	 @Id
+	 @GeneratedValue(generator = "UUID")
+	 @GenericGenerator(
+			name = "UUID",
+			strategy = "org.hibernate.id.UUIDGenerator"
+		)
 	@Column(name = "id")
 	private UUID id;
 	// AS Database table column name are different thats why using @column annotation

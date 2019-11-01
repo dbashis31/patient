@@ -1,5 +1,6 @@
 package com.patient.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.security.auth.login.CredentialException;
@@ -53,16 +54,67 @@ public class PatientServiceImpl implements PatientService {
 		}
 	}
 
-	@Override
-	public Optional<PatientDTO> update(PatientDTO patient) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
+	/**
+     * Returns an {@code  boolean} 
+     * @param PatientDTO patient data
+     * @return a {@code Optional<PatientDTO>}
+     * This method with Aspect this will make autocommit false and execute the method if any exception
+     * occured then it will rollback else commit 
+     */
 	public Optional<PatientDTO> save(PatientDTO patient) {
-		// TODO Auto-generated method stub
-		return null;
+	   try {
+			Patient patientInfo = modelMapper.map(patient, Patient.class);
+			List<PatientMemberRecord> patientMemberRecord = patientInfo.getMemberRecords();
+			patientInfo.setMemberRecords(null);
+			patientInfo =patientRepo.save(patientInfo);
+			
+			if(patientInfo!=null) {
+				for(PatientMemberRecord record : patientMemberRecord) {
+					record.setPatientId(patientInfo.getId());
+					List<Address> addressList = record.getAddress();
+					PatientMemberRecord createdRecord = patientMemberRecordRepo.save(record);
+					if(createdRecord!=null) {
+						for(Address address : addressList) {
+							address.setPatientMemberRecordid(createdRecord.getId());
+							Address createdAddress = addressRepo.save(address);
+							createdRecord.setAddress(new ArrayList<Address>());
+							createdRecord.getAddress().add(createdAddress);
+						}
+						patientInfo.setMemberRecords(new ArrayList<PatientMemberRecord>());
+						patientInfo.getMemberRecords().add(createdRecord);
+					}
+				}
+			}
+			PatientDTO dtoPatient = modelMapper.map(patientInfo, PatientDTO.class);
+			return Optional.ofNullable(dtoPatient);
+		} catch (Exception e) {
+			StringBuffer errorMsg = new StringBuffer();
+			errorMsg.append("Exception when adding patient information ");
+			throw new CpException("500", errorMsg.toString(), e);
+
+		} 
+	}
+	
+	/**
+     * Returns an {@code  boolean} 
+     * @param PatientDTO patient data
+     * @return a {@code Optional<PatientDTO>}
+     * This method with Aspect this will make autocommit false and execute the method if any exception
+     * occured then it will rollback else commit 
+     */
+	public Optional<PatientDTO> update(PatientDTO patient) {
+	   try {
+			Patient patientInfo = modelMapper.map(patient, Patient.class);
+			patientInfo =patientRepo.save(patientInfo);			
+			return Optional.ofNullable(patient);
+		} catch (Exception e) {
+			StringBuffer errorMsg = new StringBuffer();
+			errorMsg.append("Exception when adding patient information ");
+			throw new CpException("500", errorMsg.toString(), e);
+
+		} 
 	}
 
 	/**

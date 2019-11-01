@@ -13,6 +13,7 @@ public class PatientApiApplication {
 
 	    public static void main(String[] args) {
 			SpringApplication.run(PatientApiApplication.class, args);
+			
 		}
 	
 	    // Needed for JPA to set the CreatedBy and other annotations.

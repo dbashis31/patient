@@ -47,7 +47,7 @@ public class SwaggerConfig   {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("gov.mdthink.dhs"))
+                .apis(RequestHandlerSelectors.basePackage("com.patient"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaData());
